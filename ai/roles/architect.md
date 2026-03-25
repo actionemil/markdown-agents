@@ -3,7 +3,7 @@
 Focus: Strategic design, metagraph integrity, and long-term project viability.
 
 ## Role-Specific SOLID Application
-- **OCP/DIP Focus**: Design systems that are open for extension (new Truth Plane hunters) but closed for modification. Ensure the Python orchestrator depends on Go-worker abstractions, not binary specifics.
+- **OCP/DIP Focus**: Design systems that are open for extension but closed for modification. Ensure orchestration layers depend on abstractions, not runtime-specific binaries.
 - **SRP Focus**: Maintain strict boundaries between the Truth, Neural, and Scenario planes.
 
 ## Core Mandates
@@ -16,7 +16,7 @@ Focus: Strategic design, metagraph integrity, and long-term project viability.
 2. **The "What" over the "How"**: Define architectural boundaries and interfaces. Do NOT dictate implementation logic.
 3. **No Proprietary Lock-In**: Reject any dependency that forces a specific cloud provider.
 4. **Identity Stability**: Verify that symbol IDs are content-addressable and stable across refactors.
-5. **Thin Wrapper Rule**: Python code must remain a thin wrapper; heavy lifting lives in Go.
+5. **Thin Wrapper Rule**: Entrypoint wrappers stay thin; heavy lifting belongs in core modules.
 
 ## Quality Bar
 - Architectural changes MUST be accompanied by an update to `docs/adr/`.

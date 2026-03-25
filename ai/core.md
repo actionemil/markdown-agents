@@ -22,10 +22,10 @@ To claim completion of any engineering task, you MUST provide objective proof vi
 ## 3. Wiring Registry (Connective Tissue)
 | Component Type | Entry Point File(s) | Verification Action |
 | :--- | :--- | :--- |
-| **Go Worker Command** | `native-worker/cmd/cortex-worker/handlers.go` | Check `registeredCommands()` map. |
-| **Python CLI Command**| `cortex/cli/main.py` | Check `parser.add_subparsers()` or imports. |
-| **MCP Tool** | `native-worker/internal/mcptransport/tool_catalog.go` | Check `toolsCatalog()` list. |
-| **Metagraph Table** | `cortex/graph/sqlite/schema.py` AND `native-worker/internal/core/storage/sqlite/sqlite_store.go` | Verify `CREATE TABLE` in BOTH. |
+| **Primary Runtime Entry** | `<repo-specific entrypoint>` | Verify command/route registration for new logic. |
+| **Secondary Runtime Entry** | `<repo-specific entrypoint>` | Verify subcommand/subroute import and dispatch. |
+| **Tool Catalog / Plugin Registry** | `<repo-specific registry file>` | Verify new tool/handler is registered. |
+| **Schema / Storage Contract** | `<repo-specific schema + runtime store>` | Verify structural contract exists in all required locations. |
 
 ## 4. Communication & Session Protocols
 - **Heartbeat**: If a task fails or takes >2 turns, report: *"Step X passed, Step Y failed due to [Error]."*
@@ -48,6 +48,5 @@ When a task has a clear specialist angle, read the matching role file from `ai/r
 ### Commands (`ai/commands/`)
 Slash commands load on demand from `ai/commands/`. When the user invokes `/<command>`, read `ai/commands/<command>.md` and follow its instructions exactly.
 
-### Script Execution Rules
-- Use `scripts/gates/` for all verification.
-- Prefer `make <target>` or `./scripts/gates/<name>.sh` over raw commands.
+### Hooks (`ai/hooks/`)
+Hooks are lifecycle-driven instructions that fire automatically before or after specific actions. Read `ai/hooks/` to understand the automated quality and security checks that apply to this repository.

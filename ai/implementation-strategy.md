@@ -117,7 +117,7 @@ Use both models in each phase:
 - Secondary model: `Gemini Pro` (`Medium`) for rollout plans and non-critical scaffolding.
 - Candidates:
   1. payload compaction, inferred-edge lifecycle GC, power-throttling.
-  2. native ingest sidecar (`Go` worker + `Python` orchestrator) behind parity + benchmark gates.
+  2. native ingest sidecar (runtime worker + orchestrator) behind parity + benchmark gates.
 
 ## Practical Prompting Guidance Per Phase
 

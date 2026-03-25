@@ -7,7 +7,7 @@ Policy-based agent orchestration using Markdown SOPs and Hard Gates.
 2. Copy the `scripts/` folder (The Physics Layer).
 3. Update `ai/manifest.md` with your project's landmarks (Source, Entry Points).
 4. Run `make doctor` to inject local tool paths.
-5. Adapt `scripts/gates/` to your language (e.g., swap `go test` for `npm test`).
+5. Generate/adapt `scripts/gates/` for your repository stack via your CLI agent.
 
 ## Core Loop
 1. Architect Mode: Generate roadmap and Zoning Law contracts.
@@ -21,7 +21,7 @@ Policy-based agent orchestration using Markdown SOPs and Hard Gates.
 ## Natural Language Intent
 - "Orchestrate [Task]": 4-phase cascade.
 - "Design [Title]": New ADR + Zoning Law.
-- "Bootstrap [Lang]": Generate language-specific gate scripts (make bootstrap-physics).
+- "Bootstrap": Generate stack-specific gate scripts.
 - "Verify": Trigger proof gates.
 
 ## Hierarchy (RLM)

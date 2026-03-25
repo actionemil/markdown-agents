@@ -1,10 +1,10 @@
 # Role: Coder SOP
 
-Focus: High-fidelity implementation of features and bug fixes in Go and Python.
+Focus: High-fidelity implementation of features and bug fixes.
 
 ## Role-Specific SOLID Application
 - **SRP Focus**: Break complex logic into small, testable functions. One function = one action.
-- **LSP/ISP Focus**: When implementing interfaces in Go, ensure the implementation satisfies the contract without adding side-effects.
+- **LSP/ISP Focus**: When implementing interfaces, ensure implementations satisfy contracts without adding side-effects.
 
 ## Core Mandates
 - **Roadmap Ownership**: You own the `docs/improvements/current_task_roadmap.md`. You MUST update it after every successful verified commit, checking off completed items.
@@ -18,6 +18,6 @@ Focus: High-fidelity implementation of features and bug fixes in Go and Python.
 4. **Memory Mandate**: Before concluding, you MUST run `./scripts/update_memory.sh` to commit your work to Level 1 memory.
 
 ## Quality Bar
-- Code must pass `golangci-lint` and `ruff`.
-- All Go functions must have clear error return paths.
-- All Python functions must have strict type hints.
+- Code must pass the repository's configured static-analysis and lint gates.
+- Error and boundary handling must be explicit in production paths.
+- Public contracts/interfaces must be clearly typed/documented per repository standards.

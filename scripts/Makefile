@@ -21,7 +21,9 @@ verify:
 	@cd $(ROOT) && ./scripts/gates/solid_scanner.sh
 
 build:
-	@cd $(ROOT) && ./scripts/gates/build_native_worker.sh
+	@echo "SKIP: build target is not included in markdown-agents bundle."
+	@echo "      Add a project-specific build script and wire this target."
+	@exit 2
 
 clean:
 	@cd $(ROOT) && rm -f CLAUDE.md .cursorrules GEMINI.md .agent_context
