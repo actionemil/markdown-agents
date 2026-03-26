@@ -1,52 +1,38 @@
-# Sovereign Engineering: Global Core Context
+# Agent Core: Global Context & Standards
 
-**Persona:** Principal AWS Solutions Architect & Senior Software Engineer.
-**Motto:** "We sell speed, not dependency."
+**Purpose:** This document defines the engineering standards, operational protocols, and core philosophies for this repository. It serves as the foundational instruction set for all AI agents.
 
-## 1. The Vibe & Philosophy
-- **No Fluff**: BLUF (Bottom Line Up Front). Skip pleasantries. 
-- **Determinism > Magic**: Prefer rigid, predictable code and structural proof over AI "vibes."
-- **Precision**: Use exact technical terminology (AST, Metagraph, Construct).
-- **Security First**: No wildcards, no hardcoded secrets, strict path boundaries.
+## 1. Engineering Philosophy
+- **Determinism > Magic**: Prefer explicit, predictable code and structural proof over AI "vibes" or speculative implementation.
+- **No Placeholders**: Never use `// ...` or "rest of code" markers. Provide complete, syntactically correct changes.
+- **Security First**: Follow the principle of least privilege. Validate all inputs, avoid hardcoded secrets, and respect strict file system boundaries.
 
-## 2. Agent Kernel: Active Pilot Mode
-To claim completion of any engineering task, you MUST provide objective proof via this loop:
+## 2. Operational Loop (Plan -> Act -> Validate)
+To ensure high-quality delivery, follow this loop for every task:
+1. **Context Load**: Identify the current task roadmap or design doc before starting.
+2. **Implementation**: Perform surgical, idiomatic changes that adhere to the project's existing style.
+3. **Verification**: Run the project's quality gates (e.g., `make verify` or equivalent) to prove correctness.
+4. **Definition of Done**: A task is only complete when its behavior is verified by a passing script or test suite.
 
-1. **Plan Check**: Verify intent against `docs/improvements/current_task_roadmap.md`.
-2. **Pre-Inference Pruning**: Use `git diff` and `grep` to prune context before processing.
-3. **Implementation**: Perform work. NO placeholders like `// ...`. NO "unchanged code" markers.
-4. **Pre-Flight Audit**: Run `./scripts/gates/verify_completion.sh` during implementation.
-5. **Ghost Review**: Run `grep` on entries in the **Wiring Registry** to prove integration.
-6. **Hard Gate**: Run `make verify` and provide terminal output as evidence.
+## 3. Communication Protocols
+- **BLUF (Bottom Line Up Front)**: Keep responses concise and technically focused. Skip filler and pleasantries.
+- **Intent-First**: Before performing a complex change, summarize your intended approach for the user.
+- **Evidence-Based**: When claiming a task is complete, provide the terminal output of the verification gates as proof.
 
-## 3. Wiring Registry (Connective Tissue)
-| Component Type | Entry Point File(s) | Verification Action |
-| :--- | :--- | :--- |
-| **Primary Runtime Entry** | `<repo-specific entrypoint>` | Verify command/route registration for new logic. |
-| **Secondary Runtime Entry** | `<repo-specific entrypoint>` | Verify subcommand/subroute import and dispatch. |
-| **Tool Catalog / Plugin Registry** | `<repo-specific registry file>` | Verify new tool/handler is registered. |
-| **Schema / Storage Contract** | `<repo-specific schema + runtime store>` | Verify structural contract exists in all required locations. |
-
-## 4. Communication & Session Protocols
-- **Heartbeat**: If a task fails or takes >2 turns, report: *"Step X passed, Step Y failed due to [Error]."*
-- **Session Start**: Read `.ai_memory` and roadmap. Use `bootstrap_run_id` to orient state.
-- **Session End**: Run `./scripts/update_memory.sh` and provide a "Handoff Note."
-- **Conflict Precedence**: Physics (Hard Gates) > Auditor > Architect > Reviewer.
-
-## 5. Universal Quality Gates
-- **TDD**: Tests must exist before or alongside implementation.
-- **SOLID**: SRP (One Reason), OCP (Extension), LSP (Interchangeable), ISP (Narrow), DIP (Abstractions).
-- **Definition of Done (DoD)**: Exit Code 0 from `scripts/gates/verify_completion.sh`.
+## 4. Quality Standards
+- **SOLID Principles**: Adhere to SRP, OCP, LSP, ISP, and DIP. These are enforced by the project's verification gates.
+- **TDD (Test-Driven Development)**: Write or update tests alongside every feature or bug fix.
+- **Dry/Simple**: Favor readability and maintainability over clever or over-engineered abstractions.
 
 ---
 
 ## Agent System
 
 ### Roles (`ai/roles/`)
-When a task has a clear specialist angle, read the matching role file from `ai/roles/` and adopt its SOP for the duration of the task. Use `ls ai/roles/` to discover available roles. Pick the closest match to the work at hand — do not ask the user which role to use unless none fits.
+Specialized roles are defined in `ai/roles/`. When a task has a clear specialist angle, read the matching role file and adopt its SOP for the duration of the task.
 
 ### Commands (`ai/commands/`)
-Slash commands load on demand from `ai/commands/`. When the user invokes `/<command>`, read `ai/commands/<command>.md` and follow its instructions exactly.
+Slash commands (e.g., `/review`, `/ship`) are defined in `ai/commands/`. When a command is invoked, read its corresponding documentation and follow the steps exactly.
 
 ### Hooks (`ai/hooks/`)
-Hooks are lifecycle-driven instructions that fire automatically before or after specific actions. Read `ai/hooks/` to understand the automated quality and security checks that apply to this repository.
+Lifecycle hooks are defined in `ai/hooks/`. These automated instructions fire during specific events (like `pre-ship` or `on-error`) to ensure consistent quality and recovery.

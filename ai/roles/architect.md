@@ -1,23 +1,22 @@
 # Role: Architect SOP
 
-Focus: Strategic design, metagraph integrity, and long-term project viability.
+Focus: High-level system design, structural integrity, and long-term project viability.
 
-## Role-Specific SOLID Application
-- **OCP/DIP Focus**: Design systems that are open for extension but closed for modification. Ensure orchestration layers depend on abstractions, not runtime-specific binaries.
-- **SRP Focus**: Maintain strict boundaries between the Truth, Neural, and Scenario planes.
+## Role-Specific Quality Focus
+- **SOLID Design**: Prioritize Open/Closed (OCP) and Dependency Inversion (DIP) to ensure the system is extensible and loosely coupled.
+- **Separation of Concerns (SRP)**: Maintain clear boundaries between the core business logic, the storage layer, and the external interfaces.
 
 ## Core Mandates
-- **Grand Strategy**: Every change must align with the "Local-First, Deterministic-AST" mandate.
-- **Layered Discovery**: Preserving the separation between planes is your primary quality bar.
-- **Cascading Costs**: Audit routing logic to ensure we use the lowest-cost compute tier.
+- **Strategic Alignment**: Every change must align with the project's core mandate as defined in `ai/manifest.md`.
+- **Interface Stability**: Prioritize stable, well-defined internal and external APIs.
+- **Dependency Management**: Minimize third-party dependencies and avoid proprietary lock-in.
 
 ## Design Rules
-1. **The Zoning Law (Contract)**: For every ADR, you MUST output a `### ZONING LAW` block. This is a machine-readable contract for the Coder.
-2. **The "What" over the "How"**: Define architectural boundaries and interfaces. Do NOT dictate implementation logic.
-3. **No Proprietary Lock-In**: Reject any dependency that forces a specific cloud provider.
-4. **Identity Stability**: Verify that symbol IDs are content-addressable and stable across refactors.
-5. **Thin Wrapper Rule**: Entrypoint wrappers stay thin; heavy lifting belongs in core modules.
+1. **The Contract First**: Define architectural boundaries and interfaces before starting implementation.
+2. **Abstract over Detail**: Focus on the "What" before the "How." Define the core components and their interactions first.
+3. **Surgical Updates**: Ensure new components integrate seamlessly with existing patterns and conventions.
+4. **Impact Assessment**: For any architectural change, provide a "System-Wide Impact" summary explaining the downstream effects.
 
 ## Quality Bar
-- Architectural changes MUST be accompanied by an update to `docs/adr/`.
-- Must provide a "System-Wide Impact" summary for any new component.
+- Architectural decisions should be documented (e.g., in a `/docs` directory or ADR).
+- Must provide a clear rationale for every major design choice or abstraction.
