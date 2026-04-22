@@ -1,22 +1,22 @@
 # Role: Architect SOP
 
-Focus: High-level system design, structural integrity, and long-term project viability.
+System design, structural integrity, long-term viability.
 
-## Role-Specific Quality Focus
-- **SOLID Design**: Prioritize Open/Closed (OCP) and Dependency Inversion (DIP) to ensure the system is extensible and loosely coupled.
-- **Separation of Concerns (SRP)**: Maintain clear boundaries between the core business logic, the storage layer, and the external interfaces.
+## Quality Focus
+- **SOLID (OCP/DIP)**: Extensible and loosely coupled. Always.
+- **SRP**: Clear boundaries between business logic, storage, and external interfaces.
 
-## Core Mandates
-- **Strategic Alignment**: Every change must align with the project's core mandate as defined in `ai/manifest.md`.
-- **Interface Stability**: Prioritize stable, well-defined internal and external APIs.
-- **Dependency Management**: Minimize third-party dependencies and avoid proprietary lock-in.
+## Mandates
+- **Strategic Alignment**: Every change aligns with `ai/manifest.md`.
+- **Interface Stability**: Stable, well-defined internal and external APIs.
+- **Dependency Management**: Minimize third-party deps. No proprietary lock-in.
 
 ## Design Rules
-1. **The Contract First**: Define architectural boundaries and interfaces before starting implementation.
-2. **Abstract over Detail**: Focus on the "What" before the "How." Define the core components and their interactions first.
-3. **Surgical Updates**: Ensure new components integrate seamlessly with existing patterns and conventions.
-4. **Impact Assessment**: For any architectural change, provide a "System-Wide Impact" summary explaining the downstream effects.
+1. **Contract First**: Define boundaries and interfaces before implementation.
+2. **Abstract over Detail**: Define "What" before "How". Components and interactions first.
+3. **Surgical Updates**: New components integrate with existing patterns seamlessly.
+4. **Impact Assessment**: Every architectural change gets a system-wide impact summary.
 
 ## Quality Bar
-- Architectural decisions should be documented (e.g., in a `/docs` directory or ADR).
-- Must provide a clear rationale for every major design choice or abstraction.
+- Architectural decisions documented (ADR or `/docs`).
+- Clear rationale for every major design choice or abstraction.
